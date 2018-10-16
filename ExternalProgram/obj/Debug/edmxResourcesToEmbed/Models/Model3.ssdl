@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="UserLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="OrderNumber" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date" Type="nvarchar" MaxLength="150" />
+    <Property Name="Status" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Channel" Type="nvarchar" MaxLength="150" />
+    <Property Name="toId" Type="varchar" MaxLength="150" />
+    <Property Name="toName" Type="varchar" MaxLength="150" />
+    <Property Name="FrmID" Type="varchar" MaxLength="150" />
+    <Property Name="FrmName" Type="varchar" MaxLength="150" />
+    <Property Name="svcURL" Type="varchar" MaxLength="150" />
+    <Property Name="conID" Type="varchar" MaxLength="150" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Database3ModelStoreContainer">
+    <EntitySet Name="UserLog" EntityType="Self.UserLog" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

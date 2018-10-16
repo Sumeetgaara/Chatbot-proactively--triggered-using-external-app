@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database3ModelStoreContainer" CdmEntityContainer="Database3Entities">
+    <EntitySetMapping Name="UserLogs">
+      <EntityTypeMapping TypeName="Database3Model.UserLog">
+        <MappingFragment StoreEntitySet="UserLog">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="conID" ColumnName="conID" />
+          <ScalarProperty Name="svcURL" ColumnName="svcURL" />
+          <ScalarProperty Name="FrmName" ColumnName="FrmName" />
+          <ScalarProperty Name="FrmID" ColumnName="FrmID" />
+          <ScalarProperty Name="toName" ColumnName="toName" />
+          <ScalarProperty Name="toId" ColumnName="toId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Channel" ColumnName="Channel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

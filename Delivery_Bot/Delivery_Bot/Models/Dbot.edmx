@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBotDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adminTable1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="150" />
+          <Property Name="pwd" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\SNEHA MORE\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\DELIVERY_BOT\DELIVERY_BOT\APP_DATA\DBOTDB.MDF.dbo.adTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="adTable">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Tags" />
+            <PropertyRef Name="PhotoLinks" />
+            <PropertyRef Name="ProductLinks" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tags" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PhotoLinks" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ProductLinks" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="extraColumn" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DbotTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="150" />
+          <Property Name="Date" Type="nvarchar" MaxLength="150" />
+          <Property Name="Status" Type="nvarchar" MaxLength="150" />
+          <Property Name="toID" Type="nvarchar" MaxLength="150" />
+          <Property Name="toName" Type="nvarchar" MaxLength="150" />
+          <Property Name="fromID" Type="nvarchar" MaxLength="150" />
+          <Property Name="fromName" Type="nvarchar" MaxLength="150" />
+          <Property Name="serviceURL" Type="nvarchar" MaxLength="150" />
+          <Property Name="channelID" Type="nvarchar" MaxLength="150" />
+          <Property Name="conversationID" Type="nvarchar" MaxLength="150" />
+          <Property Name="PTAGS" Type="varchar" MaxLength="255" />
+          <Property Name="OrderName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="DBotDBModelStoreContainer">
+          <EntitySet Name="adminTable1" EntityType="Self.adminTable1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbotTable" EntityType="Self.DbotTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adTable" EntityType="Self.adTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [adTable].[ID] AS [ID], 
+    [adTable].[Tags] AS [Tags], 
+    [adTable].[PhotoLinks] AS [PhotoLinks], 
+    [adTable].[ProductLinks] AS [ProductLinks], 
+    [adTable].[extraColumn] AS [extraColumn]
+    FROM [dbo].[adTable] AS [adTable]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBotDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DbotTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="toID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="toName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="fromID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="fromName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="serviceURL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="channelID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="conversationID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PTAGS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OrderName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DBotDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DbotTables" EntityType="Self.DbotTable" />
+          <EntitySet Name="adminTable1" EntityType="DBotDBModel.adminTable1" />
+          <EntitySet Name="adTables" EntityType="DBotDBModel.adTable" />
+        </EntityContainer>
+        <EntityType Name="adminTable1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="pwd" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="adTable">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Tags" />
+            <PropertyRef Name="PhotoLinks" />
+            <PropertyRef Name="ProductLinks" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tags" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoLinks" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ProductLinks" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="extraColumn" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBotDBModelStoreContainer" CdmEntityContainer="DBotDBEntities">
+          <EntitySetMapping Name="DbotTables">
+            <EntityTypeMapping TypeName="DBotDBModel.DbotTable">
+              <MappingFragment StoreEntitySet="DbotTable">
+                <ScalarProperty Name="OrderName" ColumnName="OrderName" />
+                <ScalarProperty Name="PTAGS" ColumnName="PTAGS" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="toID" ColumnName="toID" />
+                <ScalarProperty Name="toName" ColumnName="toName" />
+                <ScalarProperty Name="fromID" ColumnName="fromID" />
+                <ScalarProperty Name="fromName" ColumnName="fromName" />
+                <ScalarProperty Name="serviceURL" ColumnName="serviceURL" />
+                <ScalarProperty Name="channelID" ColumnName="channelID" />
+                <ScalarProperty Name="conversationID" ColumnName="conversationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adminTable1">
+            <EntityTypeMapping TypeName="DBotDBModel.adminTable1">
+              <MappingFragment StoreEntitySet="adminTable1">
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adTables">
+            <EntityTypeMapping TypeName="DBotDBModel.adTable">
+              <MappingFragment StoreEntitySet="adTable">
+                <ScalarProperty Name="extraColumn" ColumnName="extraColumn" />
+                <ScalarProperty Name="ProductLinks" ColumnName="ProductLinks" />
+                <ScalarProperty Name="PhotoLinks" ColumnName="PhotoLinks" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
